@@ -4,10 +4,12 @@ import typer
 
 cli = typer.Typer()
 
-projects = ["Chat Bot","Menu","Platformer","Falling x","Flying x"]
+tui_projects = ["Chat Bot","Menu","Guesing game"]
+gui_projects = ["Platformer","Falling x","Flying x", "board game"]
+projects = gui_projects + tui_projects
 @cli.command("random")
 def random_project():
-    current_project = random.choice(projects)
+    current_project = random.choice(projects).lower()
     print(f"Make: {current_project}.")
     reply = input("Is that good? [y/n]: ").lower()
     if reply == "y":
